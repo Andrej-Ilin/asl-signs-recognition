@@ -1,0 +1,17 @@
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-yaml        # Validates YAML syntax
+      - id: end-of-file-fixer # Ensures a newline at the end of files
+      - id: trailing-whitespace # Trims trailing whitespace
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.5
+    hooks:
+      # Run the linter and automatically fix what it can
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter
+      - id: ruff-format

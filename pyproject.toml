@@ -1,0 +1,39 @@
+[project]
+name = "asl-signs-recognition"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "tensorflow",
+    "opencv-python",
+    "mediapipe",
+    "matplotlib",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "black",
+    "pre-commit",
+    "pytest",
+]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "W", "F", "I", "UP", "ANN"]  # ANN for type annotations
+ignore = ["F401"]  # Unused imports in __init__.py
+
+[tool.ruff.lint]
+# Enable type annotation checking
+ann-ignore = false
+
+[tool.black]
+line-length = 100
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
