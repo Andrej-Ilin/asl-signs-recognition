@@ -2,33 +2,26 @@
 ## Approximate project architecture
 
 asl-signs-recognition/\
-├── .pre-commit-config.yaml\
+├── src/                          # Исходный код проекта\
+│   ├── asl_signs/               # Основной пакет\
+│   │   ├── __init__.py\
+│   │   ├── data/\
+│   │   │   ├── __init__.py\
+│   │   │   └── load_dataset.py  # Загрузка данных из parquet\
+│   │   ├── features/\
+│   │   │   ├── __init__.py\
+│   │   │   └── landmarks.py     # Обработка ключевых точек\
+│   │   └── models/\
+│   │           ├─ __init__.py\
+│   │           └─ train.py         # Обучение модели\
+├── notebooks/                    # Исследовательские ноутбуки\
+│   ├── 01_eda.ipynb             # Анализ данных\
+│   └── 02_baseline.ipynb        # Базовое решение\
+├── tests/                       # Тесты\
+│   └── __init__.py\
+├── data/                        # Данные (в .gitignore)\
+│   ├── raw/                     # Исходные данные Kaggle\
+│   └── processed/               # Обработанные данные\
 ├── pyproject.toml\
-├── uv.lock\
-├── config/\
-│   └── default.yaml\
-├── data/\
-│   ├── raw/                    # Original Kaggle data\
-│   └── processed/              # Processed features\
-├── notebooks/\
-│   ├── 01_eda.ipynb\
-│   └── 02_baseline.ipynb\
-├── src/\
-│   ├── __init__.py\
-│   ├── data/\
-│   │   ├── __init__.py\
-│   │   ├── make_dataset.py    # Data loading\
-│   │   └── preprocess.py      # Landmark processing\
-│   ├── features/\
-│   │   ├── __init__.py\
-│   │   └── build_features.py  # Feature engineering\
-│   ├── models/\
-│   │   ├── __init__.py\
-│   │   ├── model.py           # Model architecture\
-│   │   └── train_model.py     # Training logic\
-│   └── visualization/\
-│       ├── __init__.py\
-│       └── visualize.py       # Plotting functions\
-└── tests/\
-    ├── __init__.py\
-    └── test_data.py\
+├── .pre-commit-config.yaml\
+└── README.md\
